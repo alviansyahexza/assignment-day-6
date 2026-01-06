@@ -8,7 +8,11 @@ export const schemaUpdateEvent = z.object({
   name: z.string().min(1, 'Event name is required'),
 })
 
-const schemaCreateParticipant = z.object({
+export const schemaCreateParticipant = z.object({
+  name: z.string().min(1, 'Participant name is required'),
+})
+
+export const schemaUpdateParticipant = z.object({
   name: z.string().min(1, 'Participant name is required'),
 })
 

@@ -35,10 +35,12 @@ COPY --from=builder /app/lib ./lib
 COPY --from=builder /app/src ./src
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/tsconfig.json ./
+COPY --from=builder /app/dev.db ./
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV DATABASE_URL="file:./dev.db"
 
 # Start the application
 CMD ["bun", "run", "src/index.ts"]
